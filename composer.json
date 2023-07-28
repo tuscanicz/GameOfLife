@@ -1,0 +1,15 @@
+{
+    "name": "d.finta/game-of-life",
+    "autoload": {
+        "psr-4": {
+            "DFinta\\GameOfLife\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dFinta",
+            "email": "dominik.finta@email.cz"
+        }
+    ],
+    "require": {}
+}

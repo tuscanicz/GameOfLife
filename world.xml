@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<life>
+
+<world>
+    <cells>3</cells>
+    <species>2</species>
+    <iterations>9</iterations>
+</world>
+
+<organisms>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>1</y_pos>
+        <species>rabbit</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>2</y_pos>
+        <species>rabbit</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>2</y_pos>
+        <species>rabbit</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>3</y_pos>
+        <species>rabbit</species>
+    </organism>
+
+    <!--<organism>
+        <x_pos>1</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>1</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>2</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>3</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>4</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>5</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>6</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>7</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>8</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>96</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>9</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>1</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>2</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>3</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>4</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>5</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>6</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>7</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>8</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>9</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism>
+
+    <organism>
+        <x_pos>10</x_pos>
+        <y_pos>10</y_pos>
+        <species>fox</species>
+    </organism> -->
+</organisms>
+
+</life>
