@@ -16,30 +16,38 @@ final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
 
         $this->gameOfLife = new GameOfLife(
             new FileLoader(),
-            __DIR__ . '/../world.xml'
+            __DIR__ . '/../world.xml',
+            3,
+            9
         );
-
-        $this->gameOfLife->setCells(3);
-        $this->gameOfLife->setIterations(9);
-
-        $this->gameOfLife->live();
     }
 
     public function testLiveCycle(): void
     {
-        $results = $this->gameOfLife->getOrganisms();
+        $this->gameOfLife->loadData();
+        $resultsBeforeRun = $this->gameOfLife->getOrganisms();
+        $this->gameOfLife->runWorld();
+        $resultsAfterRun = $this->gameOfLife->getOrganisms();
 
-        $expected = [
+        $expectedBeforeRun = [
+            1 => [1 => 'fox', 2 => 'fox', 3 => 'fox'],
+            2 => [1 => 'fox', 2 => 'rabbit'],
+            3 => [1 => 'rabbit', 2 => 'rabbit', 3 => 'rabbit'],
+        ];
+        $expectedAfterRun = [
             1 => [1 => 'fox', 2 => 'fox', 3 => null],
-            2 => [1 => 'fox', 2 => null, 3 => 'rabbit'],
+            2 => [1 => 'fox', 2 => 'rabbit', 3 => 'rabbit'],
             3 => [1 => 'rabbit', 2 => 'rabbit', 3 => 'rabbit'],
         ];
 
-        $this->assertEquals($expected, $results);
+        $this->assertEquals($expectedBeforeRun, $resultsBeforeRun);
+        $this->assertEquals($expectedAfterRun, $resultsAfterRun);
     }
 
     public function testJsonResult(): void
     {
+        $this->gameOfLife->loadData();
+        $this->gameOfLife->runWorld();
         $results = $this->gameOfLife->transformToJson();
 
         $expected = [
@@ -54,7 +62,7 @@ final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
                 ['organism' => ['x_pos' => 1, 'y_pos' => 3, 'species' => null]],
 
                 ['organism' => ['x_pos' => 2, 'y_pos' => 1, 'species' => 'fox']],
-                ['organism' => ['x_pos' => 2, 'y_pos' => 2, 'species' => null]],
+                ['organism' => ['x_pos' => 2, 'y_pos' => 2, 'species' => 'rabbit']],
                 ['organism' => ['x_pos' => 2, 'y_pos' => 3, 'species' => 'rabbit']],
 
                 ['organism' => ['x_pos' => 3, 'y_pos' => 1, 'species' => 'rabbit']],

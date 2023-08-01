@@ -30,15 +30,20 @@ final class GameOfLife
 
     private FileLoader $fileLoader;
 
-    public function __construct(FileLoader $fileLoader, string $filePath)
+    public function __construct(
+        FileLoader $fileLoader,
+        string $filePath,
+        int $cells,
+        int $iterations
+    )
     {
         $this->fileLoader = $fileLoader;
         $this->filePath = $filePath;
-        $this->loadData();
-        $this->live();
+        $this->cells = $cells;
+        $this->iterations = $iterations;
     }
 
-    public function live(): void
+    public function runWorld(): void
     {
         if (empty($this->organisms)) {
             return;
@@ -104,7 +109,7 @@ final class GameOfLife
         }
     }
 
-    private function loadData(): void
+    public function loadData(): void
     {
         try {
             if (!$this->filePath) {
@@ -180,25 +185,5 @@ final class GameOfLife
     public function getOrganisms(): array
     {
         return $this->organisms;
-    }
-
-    public function setPath(string $path): void
-    {
-        $this->filePath = $path;
-    }
-
-    public function setCells(int $cells): void
-    {
-        $this->cells = $cells;
-    }
-
-    public function setIterations(int $iterations): void
-    {
-        $this->iterations = $iterations;
-    }
-
-    public function setOrganisms(array $organisms): void
-    {
-        $this->organisms = $organisms;
     }
 }

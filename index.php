@@ -6,14 +6,12 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $game = new \DFinta\GameOfLife(
     new \DFinta\FileLoader\FileLoader(),
-    __DIR__ . '/world.xml'
+    __DIR__ . '/world.xml',
+    9,
+    3
 );
-$game->setCells(9);
-$game->setIterations(3);
+
+$game->loadData();
+$game->runWorld();
+
 $game->print();
-
-
-
-
-
-
