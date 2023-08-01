@@ -1,9 +1,13 @@
 {
     "name": "d.finta/game-of-life",
     "autoload": {
-        "psr-4": {
-            "DFinta\\GameOfLife\\": "src/"
-        }
+        "psr-4": {"DFinta\\": "src/"},
+        "classmap": [
+            "src"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {"DFinta\\":  "tests/"}
     },
     "authors": [
         {

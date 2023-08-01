@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace tests;
 
-use src\GameOfLife;
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+use DFinta\GameOfLife;
 
 final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
 {
@@ -15,11 +13,10 @@ final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
     {
         parent::setUp();
 
-        $this->gameOfLife = new GameOfLife();
+        $this->gameOfLife = new GameOfLife(__DIR__ . '/../world.xml');
 
         $this->gameOfLife->setCells(3);
         $this->gameOfLife->setIterations(9);
-        $this->gameOfLife->setPath("world.xml");
 
         $this->gameOfLife->live();
     }
@@ -28,7 +25,11 @@ final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
     {
         $results = $this->gameOfLife->getOrganisms();
 
-        $expected = [];
+        $expected = [
+            1 => [1 => 'fox', 2 => 'fox', 3 => null],
+            2 => [1 => 'fox', 2 => null, 3 => 'rabbit'],
+            3 => [1 => 'rabbit', 2 => 'rabbit', 3 => 'rabbit'],
+        ];
 
         $this->assertEquals($expected, $results);
     }
@@ -37,7 +38,26 @@ final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
     {
         $results = $this->gameOfLife->transformToJson();
 
-        $expected = [];
+        $expected = [
+            "world" => [
+                "cells" => 3,
+                "species" => 9,
+                "iterations" => 9
+            ],
+            "organisms" => [
+                ['organism' => ['x_pos' => 1, 'y_pos' => 1, 'species' => 'fox']],
+                ['organism' => ['x_pos' => 1, 'y_pos' => 2, 'species' => 'fox']],
+                ['organism' => ['x_pos' => 1, 'y_pos' => 3, 'species' => null]],
+
+                ['organism' => ['x_pos' => 2, 'y_pos' => 1, 'species' => 'fox']],
+                ['organism' => ['x_pos' => 2, 'y_pos' => 2, 'species' => null]],
+                ['organism' => ['x_pos' => 2, 'y_pos' => 3, 'species' => 'rabbit']],
+
+                ['organism' => ['x_pos' => 3, 'y_pos' => 1, 'species' => 'rabbit']],
+                ['organism' => ['x_pos' => 3, 'y_pos' => 2, 'species' => 'rabbit']],
+                ['organism' => ['x_pos' => 3, 'y_pos' => 3, 'species' => 'rabbit']],
+            ]
+        ];
 
         $this->assertEquals($expected, $results);
     }
