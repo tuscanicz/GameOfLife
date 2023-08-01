@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace src;
+namespace DFinta;
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+use DFinta\FileLoader\FileLoader;
+
 final class GameOfLife
 {
     private array $organisms;
@@ -27,30 +28,31 @@ final class GameOfLife
         [-1, -1]    // Left Up
     ];
 
-    public function __construct()
+    private FileLoader $fileLoader;
+
+    public function __construct(FileLoader $fileLoader, string $filePath)
     {
+        $this->fileLoader = $fileLoader;
+        $this->filePath = $filePath;
         $this->loadData();
         $this->live();
     }
 
     public function live(): void
     {
-        if (empty($this->organisms))
-        {
+        if (empty($this->organisms)) {
             return;
         }
 
         $x = $y = $step = 1;
-        while ($step <= $this->iterations)
-        {
+        while ($step <= $this->iterations) {
             $current = $this->organisms[$x][$y] ?? null;
 
             $surroundingTypes = [];
             $surroundingTrio = [];
 
             // check all surrounding positions
-            foreach (self::VECTORS as $vector)
-            {
+            foreach (self::VECTORS as $vector) {
                 $newX = $x + $vector[0];
                 $newY = $y + $vector[1];
 
@@ -64,18 +66,15 @@ final class GameOfLife
 
                         if (!$current) // if current element is empty look for trios to multiply
                         {
-                            if ($surroundingTypes[$neighbor] === 3)
-                            {
+                            if ($surroundingTypes[$neighbor] === 3) {
                                 $surroundingTrio[$neighbor] = $neighbor;
 
-                            } else if ($surroundingTypes[$neighbor] > 3)
-                            {
+                            } else if ($surroundingTypes[$neighbor] > 3) {
                                 unset($surroundingTrio[$neighbor]);
                             }
                         }
 
-                    } else
-                    {
+                    } else {
                         $surroundingTypes[$neighbor] = 1;
                     }
                 }
@@ -85,23 +84,20 @@ final class GameOfLife
             {
 
                 $this->organisms[$x][$y] = $surroundingTypes[$current] < self::LIMIT_DIE_ISOLATION
-                    || $surroundingTypes[$current] > self::LIMIT_DIE_OVERCROWDING ? null : $this->organisms[$x][$y];
+                || $surroundingTypes[$current] > self::LIMIT_DIE_OVERCROWDING ? null : $this->organisms[$x][$y];
 
             } else // empty element
             {
-                if (count($surroundingTrio) === 2)
-                {
-                    $this->organisms[$x][$y] =  array_keys($surroundingTrio)[rand(0, 1)];
-                } else if (count($surroundingTrio) === 1)
-                {
-                    $this->organisms[$x][$y] =  array_keys($surroundingTrio)[0];
+                if (count($surroundingTrio) === 2) {
+                    $this->organisms[$x][$y] = array_keys($surroundingTrio)[rand(0, 1)];
+                } else if (count($surroundingTrio) === 1) {
+                    $this->organisms[$x][$y] = array_keys($surroundingTrio)[0];
                 }
             }
 
             $step++;
             $x++;
-            if ($x > $this->cells)
-            {
+            if ($x > $this->cells) {
                 $x = 1;
                 $y++;
             }
@@ -110,15 +106,12 @@ final class GameOfLife
 
     private function loadData(): void
     {
-        try
-        {
-            if (!$this->filePath)
-            {
+        try {
+            if (!$this->filePath) {
                 throw new \Exception('No path provided, use ?path= parameter.');
             }
 
-            if (!file_exists($this->filePath))
-            {
+            if (!file_exists($this->filePath)) {
                 throw new \Exception('XML file not found.');
             }
 
@@ -130,96 +123,27 @@ final class GameOfLife
             }
             $fileData = simplexml_load_file($this->filePath);
 
-            $this->handleXmlFileData($fileData);
+            $fileLoaderConfiguration = $this->fileLoader->handleXmlFileData($fileData);
+            $this->organisms = $fileLoaderConfiguration->getOrganisms();
+            $this->cells = $fileLoaderConfiguration->getCells();
+            $this->iterations = $fileLoaderConfiguration->getIterations();
 
 
-        } catch (\Exception $e)
-        {
+        } catch (\Exception $e) {
             echo "There was a problem with a file (\"" . $this->filePath . "\"): " . $e->getMessage();;
-        }
-    }
-
-    private function createOrganismArray(\SimpleXMLElement $fileData): void
-    {
-        try
-        {
-            foreach ($fileData->organisms->children() as $organism)
-            {
-                if (!isset(
-                    $organism->x_pos,
-                    $organism->y_pos,
-                    $organism->species
-                )) {
-
-                    throw new \Exception('Organism must have set x_pos, y_pos, type values');
-
-                } else
-                {
-                    if (
-                        (int) $organism->x_pos < 1
-                        || (int) $organism->y_pos < 1
-                    ) {
-                        throw new \Exception('Organism position must be 1 or more');
-                    } else
-                    {
-                        $this->organisms[(int)$organism->x_pos][(int)$organism->y_pos] = (string)$organism->species;
-                    }
-
-                }
-            }
-        } catch (\Exception $e)
-        {
-            echo $e->getMessage();
-        }
-    }
-
-    /**
-     * Check if xml file has all needed data
-     */
-    private function handleXmlFileData(\SimpleXMLElement $fileData): void
-    {
-        try
-        {
-            if (
-                !isset(
-                    $fileData->world,
-                    $fileData->world->cells,
-                    $fileData->world->species,
-                    $fileData->world->iterations,
-                    $fileData->organisms
-                )
-                || !$fileData->organisms->children()
-            ) {
-
-                throw new \Exception('Not all needed values are provided');
-
-            } else
-            {
-                $this->createOrganismArray($fileData);
-
-                $this->cells = (int) $fileData->world->cells;
-                $this->iterations = (int) $fileData->world->iterations;
-            }
-
-        } catch (\Exception $e)
-        {
-            echo $e->getMessage();
         }
     }
 
     public function transformToJson(): array
     {
-        if (empty($this->organisms))
-        {
+        if (empty($this->organisms)) {
             return [];
         }
 
         $species = [];
         $organismResult = [];
-        foreach ($this->organisms as $x => $organismRow)
-        {
-            foreach ($organismRow as $y => $organism)
-            {
+        foreach ($this->organisms as $x => $organismRow) {
+            foreach ($organismRow as $y => $organism) {
                 if (!isset($species[$organism])) // count species
                 {
                     $species[] = $organism;
@@ -278,9 +202,3 @@ final class GameOfLife
         $this->organisms = $organisms;
     }
 }
-
-
-
-
-
-

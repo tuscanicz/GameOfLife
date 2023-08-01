@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests;
 
+use DFinta\FileLoader\FileLoader;
 use DFinta\GameOfLife;
 
 final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
@@ -13,7 +14,10 @@ final class GameOfLifeTest extends \PHPUnit\Framework\TestCase
     {
         parent::setUp();
 
-        $this->gameOfLife = new GameOfLife(__DIR__ . '/../world.xml');
+        $this->gameOfLife = new GameOfLife(
+            new FileLoader(),
+            __DIR__ . '/../world.xml'
+        );
 
         $this->gameOfLife->setCells(3);
         $this->gameOfLife->setIterations(9);
