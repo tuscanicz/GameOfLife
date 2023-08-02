@@ -1,4 +1,4 @@
-# GameOfLife
+# Code Review of DanFintas' GameOfLife
 Soo... the application isn't really working.
 Yes thats not a good start.
 
